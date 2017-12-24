@@ -51,8 +51,9 @@ In order to train the agents within the Ball Balance environment:
 
 1. Open `python/PPO.ipynb` notebook from Jupyter.
 2. Set `env_name` to the name of your environment file earlier.
-3. (optional) Set `run_path` directory to your choice.
-4. Run all cells of notebook with the exception of the last one under "Export the trained Tensorflow graph."
+3. (optional) In order to get the best results quickly, set `max_steps` to 50000, set `buffer_size` to 5000, and set `batch_size` to 512.  For this exercise, this will train the model in approximately ~5-10 minutes.
+4. (optional) Set `run_path` directory to your choice.
+5. Run all cells of notebook with the exception of the last one under "Export the trained Tensorflow graph."
 
 ### Observing Training Progress
 In order to observe the training process in more detail, you can use Tensorboard.
@@ -64,8 +65,8 @@ Then navigate to `localhost:6006`.
 
 From Tensorboard, you will see the summary statistics of six variables:
 * Cumulative Reward - The mean cumulative episode reward over all agents. Should increase during a successful training session.
-* Value Loss - The mean loss of the value function update. Correlates to how well the model is able to predict the value of each state. This should decrease during a succesful training session.
-* Policy Loss - The mean loss of the policy function update. Correlates to how much the policy (process for deciding actions) is changing. The magnitude of this should decrease during a succesful training session.
+* Value Loss - The mean loss of the value function update. Correlates to how well the model is able to predict the value of each state. This should decrease during a successful training session.
+* Policy Loss - The mean loss of the policy function update. Correlates to how much the policy (process for deciding actions) is changing. The magnitude of this should decrease during a successful training session.
 * Episode Length - The mean length of each episode in the environment for all agents.
 * Value Estimates - The mean value estimate for all states visited by the agent. Should increase during a successful training session.
 * Policy Entropy - How random the decisions of the model are. Should slowly decrease during a successful training process. If it decreases too quickly, the `beta` hyperparameter should be increased.
@@ -77,13 +78,14 @@ Once the training process displays an average reward of ~75 or greater, and ther
 Because TensorFlowSharp support is still experimental, it is disabled by default. In order to enable it, you must follow these steps. Please note that the `Internal` Brain mode will only be available once completing these steps.
 
 1. Make sure you are using Unity 2017.1 or newer.
-2. Make sure the TensorFlowSharp plugin is in your `Assets` folder. A Plugins folder which includes TF# can be downloaded [here](https://s3.amazonaws.com/unity-agents/TFSharpPlugin.unitypackage). Double click and import it once downloaded.
+2. Make sure the TensorFlowSharp plugin is in your `Assets` folder. A Plugins folder which includes TF# can be downloaded [here](https://s3.amazonaws.com/unity-agents/0.2/TFSharpPlugin.unitypackage). Double click and import it once downloaded.  You can see if this was successfully installed by checking the TensorFlow files in the Project tab under `Assets` -> `ML-Agents` -> `Plugins` -> `Computer`
 3. Go to `Edit` -> `Project Settings` -> `Player`
-4. For each of the platforms you target (**`PC, Mac and Linux Standalone`**, **`iOS`** or **`Android`**):   
+4. For each of the platforms you target (**`PC, Mac and Linux Standalone`**, **`iOS`** or **`Android`**):
 	1. Go into `Other Settings`.
 	2. Select `Scripting Runtime Version` to `Experimental (.NET 4.6 Equivalent)`
-	3. In `Scripting Defined Symbols`, add the flag `ENABLE_TENSORFLOW`
-5. Restart the Unity Editor.
+	3. In `Scripting Defined Symbols`, add the flag `ENABLE_TENSORFLOW`.  After typing in, press Enter.
+5. Go to `File` -> `Save Project`
+6. Restart the Unity Editor.
 
 ### Embedding the trained model into Unity
 
