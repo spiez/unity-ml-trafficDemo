@@ -25,6 +25,7 @@ public class GoalInteract : MonoBehaviour
             Agent agent = myAgent.GetComponent<Agent>();
             agent.done = true;
             agent.reward = 1f;
+
         }
 	}
 

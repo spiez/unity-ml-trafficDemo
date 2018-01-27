@@ -22,8 +22,8 @@ public class WallArea : Area {
     public override void ResetArea() {
         float wallHeightMin = academy.GetComponent<WallAcademy>().minWallHeight;
         float wallHeightMax = academy.GetComponent<WallAcademy>().maxWallHeight;
-		wall.transform.localScale = new Vector3(12f, Random.Range(wallHeightMin, wallHeightMax) - 0.1f, 1f);
-        block.transform.position = new Vector3(Random.Range(-3.5f, 3.5f), 1f, Random.Range(-4f, -8f)) + gameObject.transform.position;
-		goalHolder.transform.position = new Vector3(Random.Range(-3.5f, 3.5f), -0.1f, 0f) + gameObject.transform.position;
-	}
+        //wall.transform.localScale = new Vector3(12f, Random.Range(wallHeightMin, wallHeightMax) - 0.1f, 1f); //@CHG MARTIN
+        //block.transform.position = new Vector3(Random.Range(-3.5f, 3.5f), 1f, Random.Range(-4f, -8f)) + gameObject.transform.position; //@CHG MARTIN
+        goalHolder.transform.position = new Vector3(Random.Range(-3.5f, 3.5f), -0.1f, Random.Range(-35.5f, wallHeightMax)) + gameObject.transform.position; //@CHG MARTIN
+    }
 }
