@@ -9,7 +9,7 @@ Curriculum learning is set so that the goal is set further down the road at each
 step.
 
 Results are mixed, on the first steps, cumulative reward reaches 1 or even better but when
-the goal is too far away, curriculum is not enough to lead the agent to an alleged local
+the goal is too far away, curriculum is not enough, leading the agent to an alleged local
 minima state and hence not converging and cumulative reward fuction stays stationary or
 diminishing.
 
